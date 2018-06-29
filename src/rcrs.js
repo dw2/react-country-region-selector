@@ -41,9 +41,10 @@ class CountryDropdown extends React.Component {
   }
 
   render () {
-    const { name, id, classes, value, onChange, onBlur, disabled, ...rest } = this.props;
+    const {
+      name, id, classes, value, onChange, onBlur, disabled, ...rest
+    } = this.props;
     const attrs = {
-      ...rest,
       name,
       value,
       onChange: (e) => onChange(e.target.value, e),
@@ -58,7 +59,7 @@ class CountryDropdown extends React.Component {
     }
 
     return (
-      <select {...attrs}>
+      <select {...rest} {...attrs}>
         {this.getDefaultOption()}
         {this.getCountries()}
       </select>
@@ -179,7 +180,6 @@ class RegionDropdown extends React.Component {
     } = this.props;
     const isDisabled = disabled || (disableWhenEmpty && country == '');
     const attrs = {
-      ...rest,
       name,
       value,
       onChange: (e) => onChange(e.target.value, e),
@@ -194,7 +194,7 @@ class RegionDropdown extends React.Component {
     }
 
     return (
-      <select {...attrs}>
+      <select {...rest} {...attrs}>
         {this.getDefaultOption()}
         {this.getRegionList()}
       </select>
